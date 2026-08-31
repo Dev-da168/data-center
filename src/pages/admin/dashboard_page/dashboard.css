@@ -1,0 +1,823 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family:
+    Arial,
+    "Noto Sans Khmer",
+    sans-serif;
+}
+
+
+/* =========================================
+   MAIN DASHBOARD
+========================================= */
+
+.admin-dashboard {
+  min-height: 100vh;
+
+  background: #f4fcf8;
+
+  color: #172033;
+}
+
+
+/* =========================================
+   SIDEBAR
+========================================= */
+
+.admin-sidebar {
+  position: fixed;
+
+  left: 0;
+  top: 0;
+  bottom: 0;
+
+  width: 267px;
+
+  background: #147d38;
+
+  color: white;
+
+  display: flex;
+
+  flex-direction: column;
+
+  z-index: 10;
+}
+
+
+/* =========================================
+   LOGO
+========================================= */
+
+.admin-logo {
+  height: 120px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding-top: 8px;
+}
+
+.admin-logo img {
+  width: 77px;
+
+  height: 77px;
+
+  object-fit: contain;
+}
+
+
+/* =========================================
+   NAVIGATION
+========================================= */
+
+.admin-nav {
+  padding-top: 5px;
+}
+
+
+/* Navigation button */
+
+.admin-nav-item {
+  position: relative;
+
+  width: 100%;
+
+  height: 52px;
+
+  border: none;
+
+  background: transparent;
+
+  color: rgba(255, 255, 255, 0.75);
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  padding: 0 17px;
+
+  font-size: 13px;
+
+  font-weight: 500;
+
+  cursor: pointer;
+
+  text-align: left;
+}
+
+.admin-nav-item:hover {
+  background: rgba(255, 255, 255, 0.07);
+
+  color: white;
+}
+
+
+/* Dashboard */
+
+.admin-nav-item.active {
+  color: white;
+}
+
+
+/* =========================================
+   ACCESS MANAGEMENT
+========================================= */
+
+.access-title {
+  margin-top: 25px;
+
+  margin-bottom: 8px;
+
+  padding-left: 17px;
+
+  font-size: 12px;
+
+  letter-spacing: 1px;
+
+  color: rgba(255, 255, 255, 0.55);
+}
+
+
+/* Permission active */
+
+.admin-nav-item.permission-active {
+  color: white;
+
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.admin-nav-item.permission-active::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+
+  top: 0;
+
+  bottom: 0;
+
+  width: 4px;
+
+  background: #70e5bc;
+}
+
+
+/* =========================================
+   SIDEBAR BOTTOM
+========================================= */
+
+.admin-sidebar-bottom {
+  margin-top: auto;
+
+  padding-bottom: 25px;
+}
+
+.admin-logout {
+  width: 100%;
+
+  height: 48px;
+
+  border: none;
+
+  background: transparent;
+
+  color: white;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  padding: 0 31px;
+
+  font-size: 13px;
+
+  cursor: pointer;
+}
+
+.admin-logout:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+
+/* =========================================
+   MAIN AREA
+========================================= */
+
+.admin-main {
+  margin-left: 267px;
+
+  min-height: 100vh;
+}
+
+
+/* =========================================
+   TOP BAR
+========================================= */
+
+.admin-topbar {
+  height: 70px;
+
+  background: white;
+
+  border-bottom: 1px solid #dce5e2;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: flex-end;
+
+  gap: 77px;
+
+  padding: 0 23px;
+}
+
+
+/* =========================================
+   SEARCH
+========================================= */
+
+.admin-search {
+  width: 365px;
+
+  height: 39px;
+
+  border: 1px solid #9bd5bf;
+
+  border-radius: 14px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 0 12px;
+
+  color: #b1c4bd;
+}
+
+.admin-search input {
+  width: 100%;
+
+  border: none;
+
+  outline: none;
+
+  background: transparent;
+
+  font-size: 16px;
+
+  color: #374151;
+}
+
+.admin-search input::placeholder {
+  color: #718096;
+}
+
+
+/* =========================================
+   UPLOAD BUTTON
+========================================= */
+
+.upload-button {
+  height: 42px;
+
+  padding: 0 18px;
+
+  border: none;
+
+  border-radius: 4px;
+
+  background: #005b46;
+
+  color: white;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 9px;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.4px;
+
+  cursor: pointer;
+}
+
+.upload-button:hover {
+  background: #004c3a;
+}
+
+
+/* =========================================
+   CONTENT
+========================================= */
+
+.admin-content {
+  padding: 52px 25px 80px;
+}
+
+
+/* =========================================
+   STATISTICS
+========================================= */
+
+.statistics-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 16px;
+
+  max-width: 1045px;
+}
+
+
+/* =========================================
+   STAT CARD
+========================================= */
+
+.stat-card {
+  height: 216px;
+
+  border-radius: 8px;
+
+  border: 1px solid #1d3f32;
+
+  padding: 26px 25px;
+
+  color: white;
+}
+
+
+/* Total */
+
+.total-card {
+  background: #08a875;
+}
+
+
+/* Storage */
+
+.storage-card {
+  background: #147d38;
+}
+
+
+/* Second storage */
+
+.second-storage {
+  background: #45a567;
+}
+
+
+/* =========================================
+   STAT TOP
+========================================= */
+
+.stat-card-top {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+}
+
+
+/* Icon */
+
+.stat-icon {
+  width: 36px;
+
+  height: 45px;
+
+  border-radius: 4px;
+
+  background: rgba(27, 48, 68, 0.85);
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  color: #9de3c9;
+}
+
+
+/* Total card icon */
+
+.total-card .stat-icon {
+  background: rgba(17, 84, 66, 0.55);
+}
+
+
+/* Badge */
+
+.stat-badge,
+.capacity-badge {
+  padding: 7px 12px;
+
+  border-radius: 20px;
+
+  background: #075333;
+
+  color: white;
+
+  font-size: 11px;
+
+  letter-spacing: 0.3px;
+}
+
+
+/* Capacity badge */
+
+.capacity-badge {
+  background: #17243c;
+
+  color: #aeb7c7;
+}
+
+
+/* =========================================
+   STAT TITLE
+========================================= */
+
+.stat-title {
+  margin: 13px 0 10px;
+
+  font-size: 13px;
+
+  letter-spacing: 1px;
+
+  color: rgba(255, 255, 255, 0.82);
+
+  font-weight: 500;
+}
+
+
+/* =========================================
+   TOTAL NUMBER
+========================================= */
+
+.total-card h2 {
+  margin: 0;
+
+  font-size: 51px;
+
+  line-height: 1;
+
+  color: white;
+}
+
+
+/* =========================================
+   STORAGE
+========================================= */
+
+.storage-number {
+  display: flex;
+
+  align-items: baseline;
+
+  gap: 6px;
+}
+
+.storage-number strong {
+  font-size: 51px;
+
+  line-height: 1;
+
+  color: #c7d8f1;
+
+  font-weight: 700;
+}
+
+.storage-number span {
+  font-size: 18px;
+
+  color: #e1eee9;
+}
+
+
+/* =========================================
+   PROGRESS BAR
+========================================= */
+
+.progress-bar {
+  height: 6px;
+
+  margin-top: 23px;
+
+  background: #142a3a;
+
+  border-radius: 10px;
+
+  overflow: hidden;
+}
+
+.progress-fill {
+  width: 42%;
+
+  height: 100%;
+
+  background: #66e4bc;
+
+  border-radius: 10px;
+}
+
+
+/* =========================================
+   DOWNLOAD ANALYSIS
+========================================= */
+
+.download-analysis {
+  margin-top: 52px;
+
+  min-height: 406px;
+
+  margin-left: -25px;
+
+  margin-right: -25px;
+
+  padding: 27px 25px 20px;
+
+  border-top: 1px solid #d4e5df;
+
+  border-bottom: 1px solid #d4e5df;
+
+  background: rgba(247, 255, 251, 0.5);
+}
+
+
+/* =========================================
+   ANALYSIS HEADER
+========================================= */
+
+.analysis-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+}
+
+.analysis-header h2 {
+  margin: 0;
+
+  font-size: 21px;
+
+  color: #168343;
+
+  font-weight: 600;
+}
+
+
+/* Legend */
+
+.analysis-label {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  margin-right: 2px;
+
+  color: #c4ccc9;
+
+  font-size: 13px;
+}
+
+.green-dot {
+  width: 12px;
+
+  height: 12px;
+
+  border-radius: 50%;
+
+  background: #198744;
+}
+
+
+/* =========================================
+   CHART
+========================================= */
+
+.chart-container {
+  height: 310px;
+
+  max-width: 1010px;
+
+  margin-top: 25px;
+
+  position: relative;
+}
+
+
+/* Bars */
+
+.chart-bars {
+  height: 255px;
+
+  display: flex;
+
+  align-items: flex-end;
+
+  justify-content: flex-start;
+
+  gap: 8px;
+
+  padding-left: 33px;
+
+  padding-right: 32px;
+}
+
+.bar {
+  width: 129px;
+
+  border-radius: 2px 2px 0 0;
+}
+
+
+/* Individual heights */
+
+.bar-1 {
+  height: 106px;
+
+  background: #20c75d;
+}
+
+.bar-2 {
+  height: 146px;
+
+  background: #47d9a5;
+}
+
+.bar-3 {
+  height: 120px;
+
+  background: #c2e8d9;
+}
+
+.bar-4 {
+  height: 186px;
+
+  background: #a4d9c5;
+}
+
+.bar-5 {
+  height: 159px;
+
+  background: #c0e4d6;
+}
+
+.bar-6 {
+  height: 226px;
+
+  background: #16833e;
+}
+
+.bar-7 {
+  height: 200px;
+
+  background: #91d0bb;
+}
+
+
+/* =========================================
+   CHART LABELS
+========================================= */
+
+.chart-labels {
+  display: flex;
+
+  justify-content: space-between;
+
+  padding: 17px 0 0 0;
+
+  color: #c4ccc9;
+
+  font-size: 11px;
+
+  font-family: monospace;
+}
+
+.chart-labels span:nth-child(2) {
+  margin-left: 190px;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 1100px) {
+
+  .admin-sidebar {
+    width: 220px;
+  }
+
+  .admin-main {
+    margin-left: 220px;
+  }
+
+  .statistics-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .bar {
+    width: 90px;
+  }
+
+  .admin-topbar {
+    gap: 20px;
+  }
+
+  .admin-search {
+    width: 300px;
+  }
+}
+
+
+@media (max-width: 800px) {
+
+  .admin-sidebar {
+    width: 190px;
+  }
+
+  .admin-main {
+    margin-left: 190px;
+  }
+
+  .statistics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-search {
+    width: 240px;
+  }
+
+  .upload-button span {
+    display: none;
+  }
+
+  .chart-bars {
+    overflow-x: auto;
+  }
+}
+
+
+@media (max-width: 600px) {
+
+  .admin-sidebar {
+    display: none;
+  }
+
+  .admin-main {
+    margin-left: 0;
+  }
+
+  .admin-topbar {
+    padding: 0 15px;
+
+    justify-content: space-between;
+  }
+
+  .admin-search {
+    width: 65%;
+  }
+
+  .admin-content {
+    padding: 30px 15px;
+  }
+
+  .download-analysis {
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+
+  .chart-container {
+    overflow-x: auto;
+  }
+}
