@@ -5,7 +5,6 @@ import {
   ShieldCheck,
   LogOut,
   ChevronDown,
-  Search,
   CalendarDays,
   Grid3X3,
   List,
@@ -101,15 +100,6 @@ function Document() {
 
     return matchesId && matchesName && matchesType;
   });
-
-  const handleSearch = () => {
-    console.log({
-      documentId,
-      documentName,
-      documentType,
-      date,
-    });
-  };
 
   const handleLogout = () => {
     console.log("Logout");

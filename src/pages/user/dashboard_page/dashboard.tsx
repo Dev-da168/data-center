@@ -1,236 +1,306 @@
-import { useState } from "react";
-import {
-  LayoutDashboard,
-  Folder,
-  ShieldCheck,
-  LogOut,
-  ChevronDown,
-  ChevronRight,
-  Lock,
-  FileText,
-  KeyRound,
-  FolderOpen,
-  Star,
-  ArrowRight,
-} from "lucide-react";
-
+import { useNavigate } from "react-router-dom";
+import SideNav from "../../../components/sidenav/sidenav";
 import "./dashboard.css";
 
 function Dashboard() {
-  // Document dropdown state
-  const [documentOpen, setDocumentOpen] = useState(true);
+  const navigate = useNavigate();
+
+  const handleViewDocuments = () => {
+    navigate("/documents");
+  };
 
   return (
     <div className="dashboard-page">
 
-      {/* ================= SIDEBAR ================= */}
-
-      <aside className="sidebar">
-
-        {/* Logo */}
-        <div className="sidebar-logo">
-          <img
-            src="/casa-logo.png"
-            alt="CASA Logo"
-          />
-        </div>
-
-        {/* Navigation */}
-        <nav className="sidebar-nav">
-
-          {/* Dashboard */}
-          <button className="nav-item active">
-            <LayoutDashboard size={21} />
-            <span>Dashboard</span>
-          </button>
+  
 
 
-          {/* DOCUMENT */}
-          <div className="document-navigation">
+      {/* =====================================================
+          MAIN
+      ===================================================== */}
+      <main className="dashboard-main">
+        {/* =====================================================
+          SIDE NAVIGATION
+      ===================================================== */}
+      <SideNav />
 
-            <button
-              className="nav-item document-button"
-              onClick={() =>
-                setDocumentOpen(!documentOpen)
-              }
-            >
-
-              <Folder size={22} />
-
-              <span>Document</span>
-
-              {documentOpen ? (
-                <ChevronDown
-                  size={18}
-                  className="menu-arrow"
-                />
-              ) : (
-                <ChevronRight
-                  size={18}
-                  className="menu-arrow"
-                />
-              )}
-
-            </button>
-
-
-            {/* Dropdown */}
-            {documentOpen && (
-              <div className="document-submenu">
-
-                <button>
-                  Royal decree /
-                  <span> ព្រះរាជក្រឹត្យ</span>
-                </button>
-
-                <button>
-                  Sub-decree /
-                  <span> អនុក្រឹត្យ</span>
-                </button>
-
-              </div>
-            )}
-
-          </div>
-
-        </nav>
-
-
-        {/* ================= SIDEBAR BOTTOM ================= */}
-
-        <div className="sidebar-bottom">
-
-          <button className="bottom-item">
-            <ShieldCheck size={20} />
-            <span>Security Settings</span>
-          </button>
-
-          <button className="bottom-item logout">
-            <LogOut size={20} />
-            <span>Logout</span>
-          </button>
-
-        </div>
-
-      </aside>
-
-
-      {/* ================= MAIN CONTENT ================= */}
-
-      <main className="dashboard-content">
-
-        {/* Header */}
-
+        {/* =========================
+            HEADER
+        ========================= */}
         <header className="dashboard-header">
 
-          <h1>
-            Government Archive Directory
-          </h1>
+          <div>
+            <h1>Dashboard</h1>
 
-          <p>
-            Select an authoritative repository segment
-            to browse, audit, and print files.
-          </p>
+            <p>
+              Welcome to CASA Data Storing Center
+            </p>
+          </div>
+
+
+          {/* User information */}
+          <div className="user-info">
+
+            <div className="user-avatar">
+              A
+            </div>
+
+            <div>
+              <strong>Administrator</strong>
+              <span>Admin User</span>
+            </div>
+
+          </div>
 
         </header>
 
 
-        {/* ================= CATEGORY CARDS ================= */}
+        {/* =====================================================
+            CONTENT
+        ===================================================== */}
+        <section className="dashboard-content">
 
-        <section className="category-grid">
+          {/* =========================
+              STATISTICS
+          ========================= */}
+          <div className="statistics-grid">
 
-          {/* Card 1 */}
 
-          <div className="category-card selected">
+            {/* អនុក្រឹត Documents */}
+            <div className="stat-card">
 
-            <h2>
-              សេចក្តីប្រកាស
-            </h2>
-
-            <div className="category-divider"></div>
-
-            <div className="category-bottom">
-
-              <div>
-                <p className="total-label">
-                  TOTAL STORED FILES
-                </p>
-
-                <strong>
-                  1,548 Files
-                </strong>
+              <div className="stat-title">
+                <p style={{ margin: 0, color: '#166534', fontWeight: 'bold', textAlign: 'left' }}>អនុក្រឹត្យ</p>
               </div>
 
-              <button className="browse-button green">
-                ចូលមើល
+              <div className="doc-navigate">
+                <div className="doc-title">
+                    <span>
+                      ឯកសារសរុប
+                    </span>
 
-                <ArrowRight size={18} />
-              </button>
+                    <h3>
+                      0
+                    </h3>
+                </div>
+                <div className="doc-button">
+                    <button type="button">ចុចស្វែងរក</button>
+                </div>
+              </div>
+        
+            </div>
+
+
+            {/* ព្រះរាជក្រឹត Documents */}
+             <div className="stat-card">
+
+              <div className="stat-title">
+                <p style={{ margin: 0, color: '#166534', fontWeight: 'bold', textAlign: 'left' }}>ព្រះរាជក្រឹត្យ </p>
+              </div>
+
+              <div className="doc-navigate">
+                <div className="doc-title">
+                    <span>
+                      ឯកសារសរុប
+                    </span>
+
+                    <h3>
+                      0
+                    </h3>
+                </div>
+                <div className="doc-button">
+                    <button type="button">ចុចស្វែងរក</button>
+                </div>
+              </div>
+        
+            </div>
+
+            {/* ព្រះរាជក្រឹត Documents */}
+             <div className="stat-card">
+
+              <div className="stat-title">
+                <p style={{ margin: 0, color: '#166534', fontWeight: 'bold', textAlign: 'left' }}>សេចក្ដីសម្រេច</p>
+              </div>
+
+              <div className="doc-navigate">
+                <div className="doc-title">
+                    <span>
+                      ឯកសារសរុប
+                    </span>
+
+                    <h3>
+                      0
+                    </h3>
+                </div>
+                <div className="doc-button">
+                    <button type="button">ចុចស្វែងរក</button>
+                </div>
+              </div>
+        
+            </div>
+
+            {/* ព្រះរាជក្រឹត Documents */}
+             <div className="stat-card">
+
+              <div className="stat-title">
+                <p style={{ margin: 0, color: '#166534', fontWeight: 'bold', textAlign: 'left' }}>លិខិតអញ្ជើញ </p>
+              </div>
+
+              <div className="doc-navigate">
+                <div className="doc-title">
+                    <span>
+                      ឯកសារសរុប
+                    </span>
+
+                    <h3>
+                      0
+                    </h3>
+                </div>
+                <div className="doc-button">
+                    <button type="button">ចុចស្វែងរក</button>
+                </div>
+              </div>
+        
+            </div>
+
+            {/* សេចក្ដីណែនាំ Documents */}
+             <div className="stat-card">
+
+              <div className="stat-title">
+                <p style={{ margin: 0, color: '#166534', fontWeight: 'bold', textAlign: 'left' }}>សេចក្ដីណែនាំ </p>
+              </div>
+
+              <div className="doc-navigate">
+                <div className="doc-title">
+                    <span>
+                      ឯកសារសរុប
+                    </span>
+
+                    <h3>
+                      0
+                    </h3>
+                </div>
+                <div className="doc-button">
+                    <button type="button">ចុចស្វែងរក</button>
+                </div>
+              </div>
+        
+            </div>
+
+              {/* គម្រូលិខិតរដ្ឋបាល Documents */}
+             <div className="stat-card">
+
+              <div className="stat-title">
+                <p style={{ margin: 0, color: '#166534', fontWeight: 'bold', textAlign: 'left' }}>គម្រូលិខិតរដ្ឋបាល </p>
+              </div>
+
+              <div className="doc-navigate">
+                <div className="doc-title">
+                    <span>
+                      ឯកសារសរុប
+                    </span>
+
+                    <h3>
+                      0
+                    </h3>
+                </div>
+                <div className="doc-button">
+                    <button type="button">ចុចស្វែងរក</button>
+                </div>
+              </div>
+        
+            </div>
+          </div>
+
+
+
+          {/* =====================================================
+              DASHBOARD CARDS
+          ===================================================== */}
+          <div className="dashboard-grid">
+
+
+            {/* =========================
+                RECENT DOCUMENTS
+            ========================= */}
+            <div className="dashboard-card">
+
+              <div className="card-header">
+
+                <div>
+
+                  <h2 style={{ margin: 0, color: '#166534', fontWeight: 'bold', textAlign: 'left' }}>ឯកសារថ្មីៗ</h2>
+
+                  <p>ឯកសារថ្មីៗដែលបានបន្ថែមទៅក្នុងប្រព័ន្ធ</p>
+
+                </div>
+
+
+                <button className="view-button" onClick={handleViewDocuments} >មើលទាំងអស់</button>
+
+              </div>
+
+
+              {/* Empty state */}
+              <div className="empty-state">
+
+                <div className="empty-icon">
+                  ▤
+                </div>
+
+                <h3>គ្មានឯកសារទេ</h3>
+
+                <p> ឯកសារនឹងបង្ហាញនៅទីនេះដោយខ្លួនឯង ពេលដែលពួកគេត្រូវបានចុះបញ្ជាក់ក្នុងប្រព័ន្ធ.</p>
+
+              </div>
 
             </div>
 
           </div>
 
 
-          {/* Card 2 */}
 
-          <div className="category-card">
+          {/* =====================================================
+              QUICK ACTIONS
+          ===================================================== */}
+          <div className="dashboard-card quick-actions-card">
 
-            <h2>
-              អនុក្រឹត្យ
-            </h2>
 
-            <div className="category-divider"></div>
-
-            <div className="category-bottom">
+            <div className="card-header">
 
               <div>
-                <p className="total-label">
-                  TOTAL STORED FILES
-                </p>
 
-                <strong>
-                  3,840 Files
-                </strong>
+                <h2>សកម្មភាពរហ័ស </h2>
+
+                <p>មុខងារប្រព័ន្ធដែលប្រើញឹកញាប់ </p>
+
               </div>
-
-              <button className="browse-button">
-                ចូលមើល
-
-                <ArrowRight size={18} />
-              </button>
 
             </div>
 
-          </div>
 
+            <div className="quick-actions">
 
-          {/* Card 3 */}
+              {/* Search Documents */}
+              <button
+                className="quick-action"
+                onClick={handleViewDocuments}
+              >
 
-          <div className="category-card">
+                <span className="quick-icon">
+                  ⌕
+                </span>
 
-            <h2>
-              ព្រះរាជក្រឹត្យ
-            </h2>
+                <div>
 
-            <div className="category-divider"></div>
+                  <strong style={{ color: '#166534', fontWeight: 'bold' }}>
+                    ស្វែងរកឯកសារ
+                  </strong>
 
-            <div className="category-bottom">
+                  <span style={{color: '#166534'}}> ស្វែងរកឯកសារនៅក្នុងប្រព័ន្ធ </span>
 
-              <div>
-                <p className="total-label">
-                  TOTAL STORED FILES
-                </p>
+                </div>
 
-                <strong>
-                  8,129 Files
-                </strong>
-              </div>
-
-              <button className="browse-button">
-                ចូលមើល
-
-                <ArrowRight size={18} />
               </button>
 
             </div>
@@ -240,129 +310,21 @@ function Dashboard() {
         </section>
 
 
-        {/* ================= SECURITY INFORMATION ================= */}
 
-        <section className="security-information">
+        {/* =====================================================
+            FOOTER
+        ===================================================== */}
+        <footer className="dashboard-footer">
 
-          <div className="security-icon">
-            <Lock size={21} />
-          </div>
+          <span>
+            Cambodian Agricultural Science Academy
+          </span>
 
-          <div>
+          <span>
+            © 2024 CASA • Data Storing Center
+          </span>
 
-            <h3>
-              FIPS 140-3 Cryptographic Integrity Standards
-            </h3>
-
-            <p>
-              All active records stored within this
-              government portal are signed with federal
-              cryptographic keys. Any attempt to modify
-              or extract data unauthorized will trigger
-              automated logging protocols.
-            </p>
-
-          </div>
-
-        </section>
-
-
-        {/* ================= RECENT ACTIVITY ================= */}
-
-        <section className="recent-activity">
-
-          <div className="activity-header">
-
-            <h2>
-              <Star size={21} />
-              Recent Activity
-            </h2>
-
-            <button>
-              View All
-            </button>
-
-          </div>
-
-
-          <div className="activity-list">
-
-            {/* Activity 1 */}
-
-            <div className="activity-item">
-
-              <div className="activity-icon pdf">
-                <FileText size={20} />
-              </div>
-
-              <div className="activity-info">
-
-                <h3>
-                  Q4_Financial_Audit_Final.pdf
-                </h3>
-
-                <p>
-                  24.5 MB&nbsp;&nbsp; • &nbsp;&nbsp;
-                  Modified 2h ago
-                </p>
-
-              </div>
-
-            </div>
-
-
-            {/* Activity 2 */}
-
-            <div className="activity-item">
-
-              <div className="activity-icon key">
-                <KeyRound size={20} />
-              </div>
-
-              <div className="activity-info">
-
-                <h3>
-                  Master_Encryption_Keys_2024.pem
-                </h3>
-
-                <p>
-                  4 KB&nbsp;&nbsp; • &nbsp;&nbsp;
-                  <span className="restricted">
-                    🔒 Highly Restricted
-                  </span>
-                </p>
-
-              </div>
-
-            </div>
-
-
-            {/* Activity 3 */}
-
-            <div className="activity-item">
-
-              <div className="activity-icon folder">
-                <FolderOpen size={21} />
-              </div>
-
-              <div className="activity-info">
-
-                <h3>
-                  Project_Onyx_Blueprints
-                </h3>
-
-                <p>
-                  Folder&nbsp;&nbsp; • &nbsp;&nbsp;
-                  42 Items
-                </p>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </section>
+        </footer>
 
       </main>
 

@@ -1,0 +1,271 @@
+* {
+  box-sizing: border-box;
+}
+
+.side-nav {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 264px;
+  height: 100vh;
+
+  background: #18843b;
+
+  color: white;
+
+  display: flex;
+  flex-direction: column;
+
+  z-index: 1000;
+
+  overflow-y: auto;
+
+  border-radius: 0 8px 8px 0;
+}
+
+
+/* =========================
+   LOGO
+========================= */
+
+.sidebar-logo {
+  width: 100%;
+
+  height: 180px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding-top: 15px;
+}
+
+.sidebar-logo img {
+  width: 90px;
+  height: 90px;
+
+  object-fit: contain;
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.sidebar-nav {
+  width: 100%;
+
+  margin-top: 15px;
+}
+
+.nav-item {
+  width: 100%;
+
+  border: none;
+
+  background: transparent;
+
+  color: white;
+
+  display: flex;
+  align-items: center;
+
+  gap: 15px;
+
+  padding: 18px 14px;
+
+  margin: 0;
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.3px;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  transition: background 0.2s ease;
+}
+
+.nav-item:hover {
+  background: rgba(255, 255, 255, 0.10);
+}
+
+.nav-item svg {
+  flex-shrink: 0;
+}
+
+
+/* Dashboard */
+
+.nav-item:first-child {
+  padding-left: 14px;
+}
+
+
+/* =========================
+   DOCUMENT
+========================= */
+
+.document-menu {
+  width: 100%;
+}
+
+.document-nav-item {
+  position: relative;
+}
+
+.document-nav-item span {
+  flex: 1;
+}
+
+.nav-arrow {
+  transition: transform 0.2s ease;
+}
+
+.nav-arrow.rotate {
+  transform: rotate(180deg);
+}
+
+
+/* =========================
+   SUBMENU
+========================= */
+
+.submenu {
+  width: 100%;
+
+  padding: 0 15px 10px 55px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 4px;
+}
+
+.submenu button {
+  width: 100%;
+
+  border: none;
+
+  background: transparent;
+
+  color: rgba(255, 255, 255, 0.9);
+
+  padding: 9px 0;
+
+  font-size: 13px;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  line-height: 1.5;
+
+  transition: color 0.2s ease;
+}
+
+.submenu button:hover {
+  color: white;
+}
+
+
+/* =========================
+   BOTTOM
+========================= */
+
+.sidebar-bottom {
+  margin-top: auto;
+
+  width: 100%;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.7);
+
+  padding-bottom: 5px;
+}
+
+.logout-button {
+  width: 100%;
+
+  border: none;
+
+  background: transparent;
+
+  color: #ffb0b0;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 15px;
+
+  padding: 22px 14px;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  text-align: left;
+}
+
+.logout-button:hover {
+  background: rgba(255, 255, 255, 0.08);
+
+  color: white;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 750px) {
+
+  .side-nav {
+    width: 75px;
+  }
+
+  .sidebar-logo {
+    height: 130px;
+  }
+
+  .sidebar-logo img {
+    width: 55px;
+    height: 55px;
+  }
+
+  .nav-item span,
+  .logout-button span {
+    display: none;
+  }
+
+  .nav-item {
+    justify-content: center;
+
+    padding: 18px 0;
+  }
+
+  .document-nav-item {
+    justify-content: center;
+  }
+
+  .document-nav-item .nav-arrow {
+    display: none;
+  }
+
+  .submenu {
+    display: none;
+  }
+
+  .logout-button {
+    justify-content: center;
+
+    padding: 20px 0;
+  }
+}
